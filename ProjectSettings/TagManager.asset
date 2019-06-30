@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Static_Background
+    uniqueID: 2101001447
+    locked: 0
+  - name: Static_Foreground
+    uniqueID: 2761525979
+    locked: 0
+  - name: Projectiles
+    uniqueID: 1698645007
+    locked: 0
+  - name: Pawns
+    uniqueID: 1121900033
+    locked: 0
