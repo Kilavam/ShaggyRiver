@@ -5,17 +5,36 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     public Vector2 Direction;
+    public float LifeTime;
+    private float _age;
+    private Rigidbody2D _body;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        _body = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        var body = GetComponent<Rigidbody2D>();
-        body.velocity = Direction;
+        if (LifeTime != 0 && _age >= LifeTime)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _age += Time.deltaTime;
+            _body.velocity = Direction;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        var killable = other.GetComponent<Killable>();
+        if (killable!= null)
+        {
+            killable.Hit();
+            Destroy(gameObject);
+        }
+        Debug.Log("enter");
     }
 }

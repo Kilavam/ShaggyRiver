@@ -111,12 +111,4 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere((Vector2)transform.position + RightOffset, CollisionRadius);
         Gizmos.DrawWireSphere((Vector2)transform.position + LeftOffset, CollisionRadius);
     }
-
-    private void OnGUI()
-    {
-        GUILayout.Box($"Velocity: {_body.velocity}");
-        GUILayout.Box($"OnWall: {_onWall}");
-        if (GUILayout.Button("Press Me"))
-            Debug.Log("Hello!");
-    }
 }
